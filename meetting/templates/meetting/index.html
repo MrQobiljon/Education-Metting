@@ -1,0 +1,394 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+
+{% block main %}
+<!-- ***** Main Banner Area Start ***** -->
+<section class="section main-banner" id="top" data-section="section1">
+    <video autoplay muted loop id="bg-video">
+        <source src="{{ navbar.video.url }}" type="video/mp4"/>
+    </video>
+
+    <div class="video-overlay header-text">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="caption">
+                        <h6>{{ navbar.prev_title }}</h6>
+                        <h2>{{ navbar.title }}</h2>
+                        <p>
+                            {% autoescape off %}
+                            {{ navbar.content }}
+                            {% endautoescape %}
+                        </p>
+                        <div class="main-button-red">
+                            <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Main Banner Area End ***** -->
+
+<section class="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="owl-service-item owl-carousel">
+
+                    {% for strongest in strongests %}
+                    <div class="item">
+                        <div class="icon">
+                            <img src="{{ strongest.logo.url }}" alt="">
+                        </div>
+                        <div class="down-content">
+                            <h4>{{ strongest.title }}</h4>
+                            <p>{{ strongest.content }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="upcoming-meetings" id="meetings">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>Upcoming Meetings</h2>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="categories">
+                    <h4>Meeting Catgories</h4>
+                    <ul>
+                        {% for category in categories %}
+                        <li><a href="#">{{ category.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    <div class="main-button-red">
+                        <a href="meetings.html">All Upcoming Meetings</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="row">
+                    {% for meeting in meetings %}
+                    <div class="col-lg-6">
+                        <div class="meeting-item">
+                            <div class="thumb">
+                                <div class="price">
+                                    <span>${{ meeting.price }}</span>
+                                </div>
+                                <a href="meeting-details.html"><img src="{{ meeting.photo.url }}"
+                                                                    alt="New Lecturer Meeting"></a>
+                            </div>
+                            <div class="down-content d-flex">
+                                <div class="date">
+
+                                    <h6>
+                                        {{ meeting.timemeeting_set.all.0.date_meeting_1|date:"M" }}
+                                        <span>
+                                            {{ meeting.timemeeting_set.all.0.date_meeting_1|date:"j" }}
+                                        </span>
+                                    </h6>
+                                </div>
+                                <div>
+                                    <a href="meeting-details.html"><h4>{{ meeting.title }}</h4></a>
+                                    <p>{{ meeting.content|truncatewords:10 }}</p>
+                                    <p>{{ meeting.date_meeting_1 }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="apply-now" id="apply">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 align-self-center">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="item">
+                            <h3>APPLY FOR BACHELOR DEGREE</h3>
+                            <p>You are allowed to use this edu meeting CSS template for your school or university or
+                                business. You can feel free to modify or edit this layout.</p>
+                            <div class="main-button-red">
+                                <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="item">
+                            <h3>APPLY FOR BACHELOR DEGREE</h3>
+                            <p>You are not allowed to redistribute the template ZIP file on any other template website.
+                                Please contact us for more information.</p>
+                            <div class="main-button-yellow">
+                                <div class="scroll-to-section"><a href="#contact">Join Us Now!</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="accordions is-first-expanded">
+                    <article class="accordion">
+                        <div class="accordion-head">
+                            <span>About Edu Meeting HTML Template</span>
+                            <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p>If you want to get the latest collection of HTML CSS templates for your websites, you
+                                    may visit <a rel="nofollow" href="https://www.toocss.com/" target="_blank">Too CSS
+                                        website</a>. If you need a working contact form script, please visit <a
+                                            href="https://templatemo.com/contact" target="_parent">our contact page</a>
+                                    for more info.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="accordion">
+                        <div class="accordion-head">
+                            <span>HTML CSS Bootstrap Layout</span>
+                            <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p>Etiam posuere metus orci, vel consectetur elit imperdiet eu. Cras ipsum magna,
+                                    maximus at semper sit amet, eleifend eget neque. Nunc facilisis quam purus, sed
+                                    vulputate augue interdum vitae. Aliquam a elit massa.<br><br>
+                                    Nulla malesuada elit lacus, ac ultricies massa varius sed. Etiam eu metus eget nibh
+                                    consequat aliquet. Proin fringilla, quam at euismod porttitor, odio odio tempus
+                                    ligula, ut feugiat ex erat nec mauris. Donec viverra velit eget lectus sollicitudin
+                                    tincidunt.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="accordion">
+                        <div class="accordion-head">
+                            <span>Please tell your friends</span>
+                            <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p>Ut vehicula mauris est, sed sodales justo rhoncus eu. Morbi porttitor quam velit, at
+                                    ullamcorper justo suscipit sit amet. Quisque at suscipit mi, non efficitur
+                                    velit.<br><br>
+                                    Cras et tortor semper, placerat eros sit amet, porta est. Mauris porttitor sapien et
+                                    quam volutpat luctus. Nullam sodales ipsum ac neque ultricies varius.</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="accordion last-accordion">
+                        <div class="accordion-head">
+                            <span>Share this to your colleagues</span>
+                            <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                        </div>
+                        <div class="accordion-body">
+                            <div class="content">
+                                <p>Maecenas suscipit enim libero, vel lobortis justo condimentum id. Interdum et
+                                    malesuada fames ac ante ipsum primis in faucibus.<br><br>
+                                    Sed eleifend metus sit amet magna tristique, posuere laoreet arcu semper. Nulla
+                                    pellentesque ut tortor sit amet maximus. In eu libero ullamcorper, semper nisi quis,
+                                    convallis nisi.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="our-courses" id="courses">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2>Our Popular Courses</h2>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="owl-courses-item owl-carousel">
+                    {% for course in courses %}
+                    <div class="item">
+                        <img src="{{ course.photo.url }}" alt="Course One">
+                        <div class="down-content">
+                            <h4>{{ course.title }}</h4>
+                            <div class="info">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-4">
+                                        <span>{{ course.price }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="our-facts">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2>A Few Facts About Our University</h2>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="count-area-content percentage">
+                                    <div class="count-digit">{{ about_university.succesed_students }}</div>
+                                    <div class="count-title">Succesed Students</div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="count-area-content">
+                                    <div class="count-digit">{{ about_university.current_teachers }}</div>
+                                    <div class="count-title">Current Teachers</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="count-area-content new-students">
+                                    <div class="count-digit">{{ about_university.new_students }}</div>
+                                    <div class="count-title">New Students</div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="count-area-content">
+                                    <div class="count-digit">{{ about_university.awards }}</div>
+                                    <div class="count-title">Awards</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 align-self-center">
+                <div class="video">
+                    <a href="{{ about_university.video }}" target="_blank"><img
+                            src="{% static 'assets/images/play-icon.png' %}" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-us" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 align-self-center">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="contact" action="{% url 'send_message' %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <h2>Let's get in touch</h2>
+                                </div>
+                                <div class="col-lg-4">
+                                    <fieldset>
+                                        {{ form.name }}
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-4">
+                                    <fieldset>
+                                        {{ form.mail }}
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-4">
+                                    <fieldset>
+                                        {{ form.subject }}
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        {{ form.message }}
+                                    </fieldset>
+                                </div>
+                                <div class="col-lg-12">
+                                    <fieldset>
+                                        <button type="submit" id="form-submit" class="button">SEND MESSAGE NOW</button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="right-info">
+                    <ul>
+                        <li>
+                            <h6>Phone Number</h6>
+                            <span>{{ about_me.phone }}</span>
+                        </li>
+                        <li>
+                            <h6>Email Address</h6>
+                            <span>{{ about_me.mail }}</span>
+                        </li>
+                        <li>
+                            <h6>Street Address</h6>
+                            <span>{{ about_me.address }}</span>
+                        </li>
+                        <li>
+                            <h6>Website URL</h6>
+                            <span>{{ about_me.url }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>Copyright © 2022 Edu Meeting Co., Ltd. All Rights Reserved.
+            <br>
+            Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a>
+            <br>
+            Distibuted By: <a href="https://themewagon.com" target="_blank"
+                              title="Build Better UI, Faster">ThemeWagon</a>
+        </p>
+    </div>
+</section>
+{% endblock main %}
